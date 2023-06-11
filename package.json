@@ -1,8 +1,8 @@
 {
-  "name": "mfx-app",
+  "name": "mfx-taro",
   "version": "1.0.0",
   "private": true,
-  "description": "mfx-app",
+  "description": "mfx taro",
   "templateInfo": {
     "name": "default",
     "typescript": true,
@@ -33,7 +33,7 @@
     "Android >= 4.1",
     "ios >= 8"
   ],
-  "author": "",
+  "author": "zhouxingbang <zhouxingbang92@163.com>",
   "dependencies": {
     "@babel/runtime": "^7.7.7",
     "@tarojs/components": "3.5.12",
