@@ -1,8 +1,24 @@
-dist/
-deploy_versions/
-.temp/
-.rn_temp/
-node_modules/
+# Windows
+[Dd]esktop.ini
+Thumbs.db
+$RECYCLE.BIN/
+
+# macOS
 .DS_Store
-.swc
-*.html
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+
+# Node.js
+cloudFunctions/node_modules/
+node_modules
+
+# idea
+.idea
+
+# vscode
+.vscode
+
+/cloudFunctions/functions/*/node_modules/
+/cloudFunctions/functions/*/package-lock.json

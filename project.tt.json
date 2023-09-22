@@ -1,9 +1,0 @@
-{
-  "miniprogramRoot": "./",
-  "projectname": "mfx-taro",
-  "appid": "testAppId",
-  "setting": {
-    "es6": false,
-    "minified": false
-  }
-}

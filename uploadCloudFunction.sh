@@ -1,0 +1,1 @@
+${installPath} cloud functions deploy --e ${envId} --n cloudFunctions --r --project ${projectPath}
