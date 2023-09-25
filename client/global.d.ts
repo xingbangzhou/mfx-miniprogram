@@ -1,5 +1,11 @@
 /// <reference types="@tarojs/taro" />
 
+declare namespace NodeJS {
+  interface ProcessEnv {
+    TARO_ENV: 'weapp' | 'swan' | 'alipay' | 'h5' | 'rn' | 'tt' | 'quickapp' | 'qq' | 'jd'
+  }
+}
+
 declare module "*.png";
 declare module "*.gif";
 declare module "*.jpg";
@@ -22,8 +28,9 @@ declare namespace JSX {
   }
 }
 
-declare namespace NodeJS {
-  interface ProcessEnv {
-    TARO_ENV: 'weapp' | 'swan' | 'alipay' | 'h5' | 'rn' | 'tt' | 'quickapp' | 'qq' | 'jd'
-  }
+declare interface CloudDatabase {
+  readonly _id: string;
+  _createTime: number;
+  _updateTime: number;
 }
+

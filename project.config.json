@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "client/dist/",
   "srcMiniprogramRoot": "client/dist/",
-  "cloudfunctionRoot": "cloudFunctions/",
+  "cloudfunctionRoot": "cloud/functions/",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
   "setting": {
     "urlCheck": true,
