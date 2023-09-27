@@ -28,7 +28,7 @@ function Index() {
 export default observer(Index)
 
 definePageConfig({
-  navigationBarTitleText: "MFX商店",
+  navigationBarTitleText: "mfx",
   enablePullDownRefresh: true,
   enableShareAppMessage: true,
   enableShareTimeline: true,

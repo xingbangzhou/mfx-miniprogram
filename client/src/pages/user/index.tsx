@@ -32,7 +32,7 @@ function User() {
           <View className="info">
             <Image src={user.avatar} className="avatar" />
             <View className="message">
-              <View className="name">ffffffffffff</View>
+              <View className="name">{user.name}</View>
             </View>
           </View>
           <View className="content">
@@ -69,4 +69,5 @@ export default observer(User)
 
 definePageConfig({
   navigationStyle: "custom",
+  navigationBarTitleText: "mfx",
 });
