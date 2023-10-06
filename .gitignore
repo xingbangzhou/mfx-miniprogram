@@ -13,6 +13,7 @@ $RECYCLE.BIN/
 # Node.js
 cloudFunctions/node_modules/
 node_modules
+**/node_modules/
 
 # idea
 .idea
@@ -22,3 +23,6 @@ node_modules
 
 /cloudFunctions/functions/*/node_modules/
 /cloudFunctions/functions/*/package-lock.json
+
+dist
+**/dist/

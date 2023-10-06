@@ -1,6 +1,7 @@
+import React, { useEffect, useReducer } from "react";
 import Taro from "@tarojs/taro";
-import React, { useEffect } from "react";
 
+import { TabIndexContext, reducerTabIndex, defaultTabIndex } from './store/tabIndex'
 import { CLOUD_SERVICE } from "../config/env";
 import "./app.scss";
 
@@ -8,7 +9,9 @@ interface Props {
   children: React.ReactElement;
 }
 
-const App: React.FC<Props> = ({ children }) => {
+const App: React.FC<Props> = (props) => {
+  const [state, dispatch] = useReducer(reducerTabIndex, defaultTabIndex)
+
   useEffect(() => {
     if (process.env.TARO_ENV === "weapp") {
       Taro.cloud.init({
@@ -18,7 +21,9 @@ const App: React.FC<Props> = ({ children }) => {
     }
   });
 
-  return <>{children}</>
+  return <TabIndexContext.Provider value={{ tabIndex: state, dispatch }}>
+    {props.children}
+  </TabIndexContext.Provider>
 };
 
 export default App;
