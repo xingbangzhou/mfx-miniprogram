@@ -12,7 +12,7 @@
     display: flex;
     height: 110px;
     margin-top: 40px;
-    background: #ffffff;
+    background: $tabBarBackground;
     &-item {
       flex: 1;
       display: flex;
@@ -34,12 +34,23 @@
       }
     }
   }
-  .interest-icon {
-    width: 105px;
-    height: 105px;
+
+  &-interest {
+    width: 145px;
+    height: 145px;
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+    background-color: $tabBarBackground;
+    border-radius: 50%;
+
+    &-icon {
+      position: relative;
+      margin-left: 20px;
+      margin-top: 20px;
+      width: 105px;
+      height: 105px;
+    }
   }
 }

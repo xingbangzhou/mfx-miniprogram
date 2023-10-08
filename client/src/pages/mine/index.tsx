@@ -3,7 +3,6 @@ import { View, Image } from '@tarojs/components'
 import { useDidHide, useDidShow, useReady } from '@tarojs/taro'
 import { observer } from 'mobx-react'
 import { Cell, CellGroup } from '@antmjs/vantui'
-// import Router from "tarojs-router-next";
 
 import { TabIndexContext } from 'src/store/tabIndex'
 import userStore from 'src/store/userStore'
@@ -63,8 +62,7 @@ const Mine = () => {
 }
 
 definePageConfig({
-  // navigationStyle: "custom",
-  navigationBarTitleText: "mfx",
+  navigationStyle: "custom"
 });
 
 export default observer(Mine)

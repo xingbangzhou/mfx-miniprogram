@@ -1,14 +1,16 @@
 import React, { useContext } from "react"
 import Taro from '@tarojs/taro'
 import { CoverView, CoverImage } from '@tarojs/components'
+import Router from "tarojs-router-next"
 
-import { TabIndexContext } from "../store/tabIndex"
-import HomePng from '../assets/home.png'
-import HomeActivePng from '../assets/home-active.png'
-import InterestPng from '../assets/interest.png'
-import InterestActivePng from '../assets/interest-active.png'
-import MinePng from '../assets/mine.png'
-import MineActivePng from '../assets/mine-active.png'
+import { TabIndexContext } from "src/store/tabIndex"
+import { isLogin } from "src/services/login"
+import HomePng from 'src/assets/home.png'
+import HomeActivePng from 'src/assets/home-active.png'
+import InterestPng from 'src/assets/interest.png'
+import InterestActivePng from 'src/assets/interest-active.png'
+import MinePng from 'src/assets/mine.png'
+import MineActivePng from 'src/assets/mine-active.png'
 
 import './index.scss'
 
@@ -40,6 +42,12 @@ const CustomTabBar: React.FC<Props> = () => {
   }
 
   const jumpInterest = () => {
+    // 需要登陆
+    if (!isLogin()) {
+      Router.toLogin({params: {checkUrl: "/pages/interest/index"}})
+      return
+    }
+    // 跳转Tab
     Taro.switchTab({
       url: '/pages/interest/index'
     })
@@ -61,7 +69,9 @@ const CustomTabBar: React.FC<Props> = () => {
           })
         }
       </CoverView>
-      <CoverImage className="interest-icon" src={tabIndex === 'interest' ? InterestActivePng : InterestPng} onClick={jumpInterest} />
+      <CoverView className="tab-bar-interest">
+        <CoverImage className="tab-bar-interest-icon" src={tabIndex === 'interest' ? InterestActivePng : InterestPng} onClick={jumpInterest} />
+      </CoverView>
     </CoverView>
   );
 };

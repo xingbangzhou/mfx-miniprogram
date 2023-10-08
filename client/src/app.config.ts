@@ -33,8 +33,5 @@ export default defineAppConfig({
       }
     ],
   },
-  window: {
-    navigationBarBackgroundColor: "#fff",
-    navigationBarTextStyle: "black",
-  }
+  window: {}
 });

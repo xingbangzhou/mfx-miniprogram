@@ -1,10 +1,8 @@
 import { useContext, useEffect } from 'react'
 import { View } from "@tarojs/components";
 import { useDidHide, useDidShow, useReady } from '@tarojs/taro'
-import Router from "tarojs-router-next";
 
 import { TabIndexContext } from 'src/store/tabIndex'
-import { isLogin } from 'src/services/login';
 
 import "./index.scss";
 
@@ -20,10 +18,6 @@ const Interest: React.FC<Props> = () => {
 
   // 对应 onShow
   useDidShow(() => {
-    if (!isLogin()) {
-      Router.toLogin()
-    }
-
     dispatch({
       type: "change",
       payload: "interest",
@@ -43,5 +37,5 @@ const Interest: React.FC<Props> = () => {
 export default Interest;
 
 definePageConfig({
-  navigationBarTitleText: 'mfx'
+  navigationStyle: "custom"
 });

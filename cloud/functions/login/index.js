@@ -18,8 +18,6 @@ exports.main = async (event, context) => {
   const dbUsers = cloud.database().collection("users");
   const _openid = wxContext.OPENID;
 
-  console.log("login", "openid: ", _openid, userInfo)
-
   // 添加用户信息到数据库
   try {
     const user = await dbUsers.where({ _openid }).get();

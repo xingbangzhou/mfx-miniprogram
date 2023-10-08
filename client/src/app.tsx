@@ -4,6 +4,7 @@ import Taro from "@tarojs/taro";
 import "./utils/fix";
 import { TabIndexContext, reducerTabIndex, defaultTabIndex } from './store/tabIndex'
 import { CLOUD_SERVICE } from "../config/env";
+
 import "./app.scss";
 
 interface Props {
@@ -22,9 +23,11 @@ const App: React.FC<Props> = (props) => {
     }
   });
 
-  return <TabIndexContext.Provider value={{ tabIndex: state, dispatch }}>
-    {props.children}
-  </TabIndexContext.Provider>
+  return (
+    <TabIndexContext.Provider value={{ tabIndex: state, dispatch }}>
+      {props.children}
+    </TabIndexContext.Provider>
+  )
 };
 
 export default App;

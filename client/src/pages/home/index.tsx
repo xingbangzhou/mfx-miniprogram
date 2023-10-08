@@ -39,8 +39,5 @@ function Home() {
 export default observer(Home)
 
 definePageConfig({
-  navigationBarTitleText: "mfx",
-  // enablePullDownRefresh: true,
-  // enableShareAppMessage: true,
-  // enableShareTimeline: true,
+  navigationStyle: "custom"
 });
