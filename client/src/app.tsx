@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 import Taro from "@tarojs/taro";
 
+import "./utils/fix";
 import { TabIndexContext, reducerTabIndex, defaultTabIndex } from './store/tabIndex'
 import { CLOUD_SERVICE } from "../config/env";
 import "./app.scss";

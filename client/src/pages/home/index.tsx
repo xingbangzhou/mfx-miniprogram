@@ -1,9 +1,10 @@
 import { useContext, useEffect } from 'react'
 import { View } from '@tarojs/components'
 import { useDidHide, useDidShow, useReady } from '@tarojs/taro'
-import { observer } from '@tarojs/mobx'
+import { observer } from 'mobx-react'
 
 import { TabIndexContext } from 'src/store/tabIndex'
+
 import './index.scss'
 
 function Home() {

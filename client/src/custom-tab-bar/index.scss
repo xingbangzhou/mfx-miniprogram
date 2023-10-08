@@ -1,3 +1,5 @@
+@import "../styles/variable.scss";
+
 .tab-bar {
   position: fixed;
   left: 0;
@@ -25,10 +27,14 @@
         font-size: 24px;
         line-height: 42px;
         background: #ffffff;
+        color: $tabBarTextColor;
+        &.active {
+          color: $tabBarTextColorActive;
+        }
       }
     }
   }
-  .eye-icon {
+  .interest-icon {
     width: 105px;
     height: 105px;
     position: absolute;

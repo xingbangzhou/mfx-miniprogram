@@ -2,8 +2,9 @@ export default defineAppConfig({
   cloud: true,
   pages: [
     "pages/home/index",
-    "pages/eye/index",
+    "pages/interest/index",
     "pages/mine/index",
+    "pages/login/index",
   ],
   tabBar: {
     custom: true,
@@ -19,10 +20,10 @@ export default defineAppConfig({
         selectedIconPath: 'assets/home-active.png',
       },
       {
-        pagePath: 'pages/eye/index',
-        text: 'home',
-        iconPath: 'assets/eye.png',
-        selectedIconPath: 'assets/eye.png',
+        pagePath: 'pages/interest/index',
+        text: 'interest',
+        iconPath: 'assets/interest.png',
+        selectedIconPath: 'assets/interest.png',
       },
       {
         pagePath: 'pages/mine/index',

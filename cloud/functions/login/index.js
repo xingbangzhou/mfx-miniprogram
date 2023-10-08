@@ -13,13 +13,13 @@ cloud.init({
 exports.main = async (event, context) => {
   const { userInfo } = event;
 
-  // 可执行其他自定义逻辑
-  // console.log 的内容可以在云开发云函数调用日志查看
-
   // 获取 WX Context (微信调用上下文)，包括 OPENID、APPID、及 UNIONID（需满足 UNIONID 获取条件）等信息
   const wxContext = cloud.getWXContext();
   const dbUsers = cloud.database().collection("users");
   const _openid = wxContext.OPENID;
+
+  console.log("login", "openid: ", _openid, userInfo)
+
   // 添加用户信息到数据库
   try {
     const user = await dbUsers.where({ _openid }).get();
@@ -29,13 +29,13 @@ exports.main = async (event, context) => {
         data: user.data[0],
       };
     } else {
-      const userData = { ...userInfo, _openid };
+      const data = { ...userInfo, _openid };
       await dbUsers.add({
-        data: userData,
+        data: data,
       });
       return {
         success: true,
-        data: userData,
+        data: data,
       };
     }
   } catch (error) {

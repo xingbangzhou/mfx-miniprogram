@@ -1,14 +1,16 @@
 import { useContext, useEffect } from 'react'
 import { View } from "@tarojs/components";
 import { useDidHide, useDidShow, useReady } from '@tarojs/taro'
-import { Cell, CellGroup } from "@antmjs/vantui";
+import Router from "tarojs-router-next";
 
 import { TabIndexContext } from 'src/store/tabIndex'
+import { isLogin } from 'src/services/login';
+
 import "./index.scss";
 
 interface Props {}
 
-const Eye: React.FC<Props> = () => {
+const Interest: React.FC<Props> = () => {
   const { dispatch } = useContext(TabIndexContext);
   // React Hooks
   useEffect(() => {}, [])
@@ -18,9 +20,13 @@ const Eye: React.FC<Props> = () => {
 
   // 对应 onShow
   useDidShow(() => {
+    if (!isLogin()) {
+      Router.toLogin()
+    }
+
     dispatch({
       type: "change",
-      payload: "eye",
+      payload: "interest",
     });
   })
 
@@ -28,19 +34,13 @@ const Eye: React.FC<Props> = () => {
   useDidHide(() => {})
 
   return (
-    <View className="aboutPage">
-      <View className="logo">
-        {/* <Image src={logoUrl} /> */}
-      </View>
-      <View className="desc">描述</View>
-      <CellGroup>
-        <Cell title="客户服务热线" isLink />
-      </CellGroup>
+    <View className="interestPage">
+      Interest
     </View>
   );
 };
 
-export default Eye;
+export default Interest;
 
 definePageConfig({
   navigationBarTitleText: 'mfx'
