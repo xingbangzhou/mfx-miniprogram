@@ -32,7 +32,7 @@ const Mine = () => {
   useDidHide(() => {})
 
   return (
-    <View className="minePage">
+    <View className="mine-page">
       <View className="mine">
         <View className="info">
           <Image src={userStore.avatar} className="avatar" />
@@ -51,7 +51,7 @@ const Mine = () => {
               <Cell
                 title="关于我们"
                 isLink
-                renderIcon={<Image src={AboutSVG} className="icon" />} // onClick={() => Router.toAbout()}
+                renderIcon={<Image src={AboutSVG} className="icon" />}
               />
             </CellGroup>
           </View>
@@ -61,8 +61,8 @@ const Mine = () => {
   )
 }
 
+export default observer(Mine)
+
 definePageConfig({
   navigationStyle: "custom"
 });
-
-export default observer(Mine)

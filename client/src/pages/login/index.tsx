@@ -41,7 +41,7 @@ const Login: React.FC<Props> = () => {
   }
 
   return (
-    <View className="loginPage">
+    <View className="login-page">
       <Image src={LogoPng} className="logo" />
       <Button className="btn" type="primary" openType="getUserInfo" onGetUserInfo={onGetUserInfo}>用户一键登录</Button>
     </View>

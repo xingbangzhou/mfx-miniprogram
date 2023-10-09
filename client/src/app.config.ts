@@ -2,7 +2,7 @@ export default defineAppConfig({
   cloud: true,
   pages: [
     "pages/home/index",
-    "pages/interest/index",
+    "pages/manage/index",
     "pages/mine/index",
     "pages/login/index",
   ],
@@ -16,20 +16,20 @@ export default defineAppConfig({
       {
         pagePath: 'pages/home/index',
         text: 'home',
-        iconPath: 'assets/home.png',
-        selectedIconPath: 'assets/home-active.png',
+        iconPath: 'assets/tab-bar/home.png',
+        selectedIconPath: 'assets/tab-bar/home-active.png',
       },
       {
-        pagePath: 'pages/interest/index',
-        text: 'interest',
-        iconPath: 'assets/interest.png',
-        selectedIconPath: 'assets/interest.png',
+        pagePath: 'pages/manage/index',
+        text: 'manage',
+        iconPath: 'assets/tab-bar/manage.png',
+        selectedIconPath: 'assets/tab-bar/manage-active.png',
       },
       {
         pagePath: 'pages/mine/index',
         text: 'mine',
-        iconPath: 'assets/mine.png',
-        selectedIconPath: 'assets/mine-active.png',
+        iconPath: 'assets/tab-bar/mine.png',
+        selectedIconPath: 'assets/tab-bar/mine-active.png',
       }
     ],
   },

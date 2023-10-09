@@ -8,7 +8,7 @@ import "./index.scss";
 
 interface Props {}
 
-const Interest: React.FC<Props> = () => {
+const Manage: React.FC<Props> = () => {
   const { dispatch } = useContext(TabIndexContext);
   // React Hooks
   useEffect(() => {}, [])
@@ -20,7 +20,7 @@ const Interest: React.FC<Props> = () => {
   useDidShow(() => {
     dispatch({
       type: "change",
-      payload: "interest",
+      payload: "manage",
     });
   })
 
@@ -28,13 +28,13 @@ const Interest: React.FC<Props> = () => {
   useDidHide(() => {})
 
   return (
-    <View className="interestPage">
-      Interest
+    <View className="manage-page">
+      Manage
     </View>
   );
 };
 
-export default Interest;
+export default Manage;
 
 definePageConfig({
   navigationStyle: "custom"
