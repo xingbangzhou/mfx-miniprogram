@@ -1,14 +1,19 @@
-import { useContext, useEffect } from 'react'
-import { View } from "@tarojs/components";
+import { memo, useContext, useEffect } from 'react'
+import { CoverView, View } from "@tarojs/components"
 import { useDidHide, useDidShow, useReady } from '@tarojs/taro'
 
-import { TabIndexContext } from 'src/store/tabIndex'
+import { TabIndexContext } from 'src/stores/tabBar'
 
-import "./index.scss";
+import "./index.scss"
 
-interface Props {}
+const NavBar = memo(function NavBar() {
+  return (
+    <CoverView className="nav-bar">
+    </CoverView>
+  )
+})
 
-const Manage: React.FC<Props> = () => {
+const Manage: React.FC<unknown> = () => {
   const { dispatch } = useContext(TabIndexContext);
   // React Hooks
   useEffect(() => {}, [])
@@ -29,7 +34,10 @@ const Manage: React.FC<Props> = () => {
 
   return (
     <View className="manage-page">
-      Manage
+      <NavBar />
+      <View className="content">
+        Manage
+      </View>
     </View>
   );
 };

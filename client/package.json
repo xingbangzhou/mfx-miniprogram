@@ -30,7 +30,6 @@
     "dev:quickapp": "npm run build:quickapp -- --watch"
   },
   "dependencies": {
-    "@antmjs/vantui": "^3.2.0",
     "@babel/runtime": "^7.22.15",
     "@tarojs/cli": "^3.6.16",
     "@tarojs/components": "^3.6.16",

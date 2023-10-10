@@ -1,14 +1,12 @@
 import { useEffect } from 'react'
-import { ButtonProps, Image, View } from "@tarojs/components";
+import { Button, ButtonProps, Image, View } from "@tarojs/components"
 import Taro, { useDidHide, useDidShow, useReady } from '@tarojs/taro'
-import { Button } from '@antmjs/vantui';
-import Router from "tarojs-router-next";
+import Router from "tarojs-router-next"
 
-import { userStore } from 'src/store';
-import LogoPng from "src/assets/logo.png";
+import { user } from 'src/stores'
+import LogoPng from "src/assets/logo.png"
 
-import "./index.scss";
-
+import "./index.scss"
 
 interface Props {}
 
@@ -27,7 +25,7 @@ const Login: React.FC<Props> = () => {
 
   const onGetUserInfo: ButtonProps['onGetUserInfo'] = event => {
     if (event.detail) {
-      userStore.login(event.detail as any).then(() => {
+      user.login(event.detail as any).then(() => {
         const {checkUrl} = Router.getParams<{checkUrl: string}>()
         if (checkUrl) {
           Taro.switchTab({

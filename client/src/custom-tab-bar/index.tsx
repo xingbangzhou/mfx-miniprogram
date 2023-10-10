@@ -3,7 +3,7 @@ import Taro from '@tarojs/taro'
 import { CoverView, CoverImage } from '@tarojs/components'
 import Router from "tarojs-router-next"
 
-import { TabIndexContext } from "src/store/tabIndex"
+import { TabIndexContext } from "src/stores/tabBar"
 import { isLogin } from "src/services/login"
 import HomePng from 'src/assets/tab-bar/home.png'
 import HomeActivePng from 'src/assets/tab-bar/home-active.png'
