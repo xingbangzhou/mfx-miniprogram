@@ -1,5 +1,5 @@
 <div align="center">
-<h1>mfx-shop</h1>
+<h1>mfx-miniprogram</h1>
 </div>
 
 ## 介绍
