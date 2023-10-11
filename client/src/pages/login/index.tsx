@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Button, ButtonProps, Image, View } from "@tarojs/components"
+import { Button, Image, View } from "@tarojs/components"
 import Taro, { useDidHide, useDidShow, useReady } from '@tarojs/taro'
 import Router from "tarojs-router-next"
 
@@ -23,9 +23,9 @@ const Login: React.FC<Props> = () => {
   // 对应 onHide
   useDidHide(() => {})
 
-  const onGetUserInfo: ButtonProps['onGetUserInfo'] = event => {
-    if (event.detail) {
-      user.login(event.detail as any).then(() => {
+  const onLogin = () => {
+    user.login().then(isLogin => {
+      if (isLogin) {
         const {checkUrl} = Router.getParams<{checkUrl: string}>()
         if (checkUrl) {
           Taro.switchTab({
@@ -33,15 +33,15 @@ const Login: React.FC<Props> = () => {
           })
           return
         }
-        Router.back()
-      })
-    }
+      }
+      Router.back()
+    })
   }
 
   return (
     <View className="login-page">
       <Image src={LogoPng} className="logo" />
-      <Button className="btn" type="primary" openType="getUserInfo" onGetUserInfo={onGetUserInfo}>用户一键登录</Button>
+      <Button className="btn" type="primary" onClick={onLogin}>用户一键登录</Button>
     </View>
   );
 };

@@ -9,3 +9,7 @@ declare interface UserDb extends CloudDatabase {
   nickName: string; // 昵称
   province: string; // 省份
 }
+
+declare interface ProductDb extends CloudDatabase {
+  thumbnail: string
+}

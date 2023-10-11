@@ -1,8 +1,9 @@
-import { action, makeObservable, observable } from "mobx";
-import Taro from "@tarojs/taro";
+import { action, makeObservable, observable } from "mobx"
+import Taro from "@tarojs/taro"
 
-import { cloudLogin } from "src/services/login";
-import { USER_INFO_STORAGE } from "src/constants/storages";
+import { loginUser, isLogin, wxLogin } from "src/services/login"
+import { USER_INFO_STORAGE } from "src/constants/storages"
+import Toast from "src/components/toast"
 
 class User {
   constructor() {
@@ -34,14 +35,24 @@ class User {
     this.avatar = value
   }
 
-  async login(profile: {userInfo: Taro.UserInfo; [key: string]: any}) {
-    const userRes = await cloudLogin(profile.userInfo)
-    if (userRes.result.success) {
-      const info = userRes.result.data
-      Taro.setStorageSync(USER_INFO_STORAGE, info)
-      this.loadInfo(info)
-      return true;
+  async login() {
+    if (isLogin()) return true
+    try {
+      const loginRes = await wxLogin()
+      if (loginRes) {
+        const userRes = await loginUser(loginRes.userInfo)
+        if (userRes.result.success) {
+          const info = userRes.result.data
+          Taro.setStorageSync(USER_INFO_STORAGE, info)
+          this.loadInfo(info)
+          return true
+        }
+      }
+    } catch(error) {
+      console.error(error)
+      Toast.fail("登录失败")
     }
+
     return false
   }
 

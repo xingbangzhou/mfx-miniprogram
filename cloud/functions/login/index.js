@@ -36,10 +36,10 @@ exports.main = async (event, context) => {
         data: data,
       };
     }
-  } catch (error) {
+  } catch (err) {
     return {
       success: false,
-      msg: error,
+      msg: err,
     };
   }
 };

@@ -1,10 +1,11 @@
-import { memo, useContext, useEffect, useState } from 'react'
+import { memo, useContext, useEffect, useMemo } from 'react'
 import { CoverImage, CoverView, View, Image, Swiper, SwiperItem } from '@tarojs/components'
 import { useDidHide, useDidShow, useReady } from '@tarojs/taro'
 import { observer } from 'mobx-react'
 
 import { TabIndexContext } from 'src/stores/tabBar'
 import LogoPng from 'src/assets/logo.png'
+import {products} from 'src/stores'
 
 import './index.scss'
 
@@ -18,16 +19,24 @@ const NavBar = memo(function NavBar() {
 })
 
 const Home: React.FC<unknown> = () => {
-  const { dispatch } = useContext(TabIndexContext);
+  const { dispatch } = useContext(TabIndexContext)
 
-  const [imgList] = useState([
-    "cloud://cloud1-8g1xq6ly7cf0d196.636c-cloud1-8g1xq6ly7cf0d196-1321060259/example2.png",
-    "cloud://cloud1-8g1xq6ly7cf0d196.636c-cloud1-8g1xq6ly7cf0d196-1321060259/example1.png",
-    "cloud://cloud1-8g1xq6ly7cf0d196.636c-cloud1-8g1xq6ly7cf0d196-1321060259/example0.png"
-  ])
+  const itemList = products.itemList
+
+  // const [imgList] = useState([
+  //   "cloud://cloud1-8g1xq6ly7cf0d196.636c-cloud1-8g1xq6ly7cf0d196-1321060259/example2.png",
+  //   "cloud://cloud1-8g1xq6ly7cf0d196.636c-cloud1-8g1xq6ly7cf0d196-1321060259/example1.png",
+  //   "cloud://cloud1-8g1xq6ly7cf0d196.636c-cloud1-8g1xq6ly7cf0d196-1321060259/example0.png"
+  // ])
+
+  const thumbnailList = useMemo(() => {
+    return itemList.map(el => el.thumbnail)
+  }, [itemList])
 
   // React Hooks
-  useEffect(() => {}, [])
+  useEffect(() => {
+    products.loadList()
+  }, [])
 
   // 对应 onReady
   useReady(() => {})
@@ -50,7 +59,7 @@ const Home: React.FC<unknown> = () => {
       <View className="content">
         <Swiper className="content-swiper" autoplay circular interval={1000} indicatorDots indicatorColor="rgba((44,44,44,0.3)" indicatorActiveColor="rgba(18,150,219,0.3)">
           {
-            imgList.map(img => (
+            thumbnailList.map(img => (
               <SwiperItem key={img}>
                 <Image src={img} />
               </SwiperItem>
